@@ -91,6 +91,7 @@ func rows2mapObjectWithDateFormat(rows *core.Rows, dateFormat string, fields []s
 		rawValue := reflect.Indirect(reflect.ValueOf(scanResultContainers[ii]))
 		//if row is null then ignore
 		if rawValue.Interface() == nil {
+			result[key] = ""  // or return nil , Don't ignore it
 			continue
 		}
 
